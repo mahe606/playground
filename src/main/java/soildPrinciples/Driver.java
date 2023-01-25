@@ -1,4 +1,4 @@
-package main.java.soildPrinciples;
+package soildPrinciples;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package main.java.soildPrinciples;
+package soildPrinciples;
 
 public class Square implements Shape {
     private double side;

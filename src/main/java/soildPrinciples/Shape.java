@@ -1,4 +1,4 @@
-package main.java.soildPrinciples;
+package soildPrinciples;
 
 public interface Shape {
     public double area();

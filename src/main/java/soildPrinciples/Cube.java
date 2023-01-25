@@ -1,4 +1,4 @@
-package main.java.soildPrinciples;
+package soildPrinciples;
 
 public class Cube implements Shape, ThreeDShape{
 
