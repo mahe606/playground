@@ -1,6 +1,13 @@
 package java8.defaultMethods;
 
 public class Honda implements Vehicle{
+
+    // static method inside class
+    public static void sayHello(){
+        System.out.println("Say Hello from Class Honda");
+    }
+
+
     @Override // overriding abstract method (mandatory)
     public int getSpeed() {
         return 100;
@@ -28,8 +35,5 @@ public class Honda implements Vehicle{
         Vehicle.sayHello();
     }
 
-    // static method inside class
-    public static void sayHello(){
-        System.out.println("Say Hello from Class Honda");
-    }
+
 }

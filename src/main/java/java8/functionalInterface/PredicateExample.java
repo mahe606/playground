@@ -1,5 +1,6 @@
 package java8.functionalInterface;
 
+import java.util.function.BiPredicate;
 import java.util.function.Predicate;
 
 public class PredicateExample {
@@ -8,6 +9,9 @@ public class PredicateExample {
 
         Predicate<String> isLong = str -> str.length() > 50;
         System.out.println(isLong.test("cjdhjcdhbdccjdhjcdhbdccjdhjccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdc"));
+
+        BiPredicate<String, Integer> isLongEnough = (str, limit) -> str.length() > limit;
+        System.out.println("BiPredicate - isLongEnough  :" + isLongEnough.test("mahesh", 20));
 
         Predicate<Integer> isEven = input -> input % 2 == 0;
         System.out.println(isEven.test(60));

@@ -1,5 +1,6 @@
 package java8.functionalInterface;
 
+import java.util.function.BiFunction;
 import java.util.function.Function;
 
 public class FunctionExample {
@@ -7,6 +8,10 @@ public class FunctionExample {
     public static void main(String[] args) {
         Function<String, String> upperCase = str -> str.toUpperCase();
         System.out.println("To Upper case  : " + upperCase.apply("mahesh"));
+
+        BiFunction<String, String, Integer> getStringLength = (str, str1) -> str.length() + str1.length();
+
+        System.out.println("Length of my name is " + getStringLength.apply("mahesh", "Thamilarasu"));
 
         Function<String, String> sameValue = Function.identity();
         System.out.println("Function Identity()  :" + sameValue.apply("Mahesh"));
@@ -33,7 +38,7 @@ public class FunctionExample {
         };
 
         // Chaining of methods using compose
-        divide = divide.compose( x -> {
+        divide = divide.compose(x -> {
             System.out.println("Divide by 3");
             return x / 3;
         });

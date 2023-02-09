@@ -1,4 +1,4 @@
-package main.java.jetblue;
+package jetblue;
 
 import java.util.HashMap;
 import java.util.HashSet;
