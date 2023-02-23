@@ -2,7 +2,9 @@ package java8.streams;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class StreamOperations {
@@ -11,6 +13,8 @@ public class StreamOperations {
         //mapOperation();
         flatMapOperation();
         convertDollarToRupee();
+        filterOperation();
+        findLongestString();
     }
 
     // map operation
@@ -39,15 +43,31 @@ public class StreamOperations {
         streamOfLetters.flatMap(Arrays::stream).forEach(System.out::println);
     }
 
+    public static void filterOperation(){
+        List<String> names = new ArrayList<>();
+        names.add("Mahesh");
+        names.add("Mohan");
+        names.add("Devaki");
+        names.add("Karthik");
+
+        System.out.println();
+        List<String>  filtered = names.stream().filter(name -> name.startsWith("M")).toList();
+        System.out.println(filtered);
+    }
+
     public static void convertDollarToRupee(){
-        String phrase = "Payment of $3500 is done to buy a gold $ locket";
+        String phrase = "Payment of $3500 is done to buy a $600 gold $ locket";
         Stream<String> streamOfWords = Arrays.stream(phrase.split(" "));
-        streamOfWords.map(str -> {
-            if(str.startsWith("$") && str.length() > 1)
-                phrase.replace(str,str.replace("$","₹"));
-            return str;
-        });
+        List<String> filtered = streamOfWords.filter(u->u.startsWith("$")).filter(u->u.length()!= 1).toList();
+        for(String str:filtered){
+            phrase = phrase.replace(str,str.replace("$","₹"));
+        }
         System.out.println(phrase);
     }
 
+    public static void findLongestString(){
+        String phrase = "Payment fvfvfvfvfvfv of $3500 is done to buy a $600 gold $ locket";
+        String longString = Arrays.stream(phrase.split(" ")).max(Comparator.comparingInt(String::length)).orElse(null).toString();
+        System.out.println("The longest String is " + longString);
+    }
 }

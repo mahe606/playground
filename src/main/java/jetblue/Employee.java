@@ -1,4 +1,4 @@
-package main.java.jetblue;
+package jetblue;
 
 public class Employee {
     private String empName;

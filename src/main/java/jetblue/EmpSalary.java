@@ -1,7 +1,9 @@
-package main.java.jetblue;
+package jetblue;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 
 public class EmpSalary {
     public static void main(String[] args) {
@@ -13,12 +15,10 @@ public class EmpSalary {
         empList.add(b);
         empList.add(c);
         System.out.println(getMaxSalary(empList).getEmpNameName());
-
     }
 
 
     public static Employee getMaxSalary(List<Employee> list){
-
         Employee emp = null;
         int maxSal = 0;
         for(Employee e:list){
@@ -29,4 +29,12 @@ public class EmpSalary {
         }
         return emp;
     }
+
+    public static int getMaxSalaryStream(List<Employee> list){
+        Optional<Employee> salary = list.stream().max(Comparator.comparingInt(Employee::getSalary));
+
+        return 0;
+    }
+
+
 }
