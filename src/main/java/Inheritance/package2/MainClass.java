@@ -1,7 +1,7 @@
-package main.java.Inheritance.package2;
+package Inheritance.package2;
 
 
-import main.java.Inheritance.package1.Parent;
+import Inheritance.package1.Parent;
 
 public class MainClass {
     public static void main(String[] args) {

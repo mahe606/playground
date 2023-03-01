@@ -1,4 +1,4 @@
-package main.java.Inheritance.package1;
+package Inheritance.package1;
 
 public class Animal {
     String walk(int kms){

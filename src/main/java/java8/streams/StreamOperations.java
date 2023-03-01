@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
-import java.util.function.Supplier;
+import java.util.function.*;
 import java.util.stream.Stream;
 
 public class StreamOperations {
@@ -41,6 +41,8 @@ public class StreamOperations {
 
         /* here when we use flat map it will treat the 2 string[] arrays as 1*/
         streamOfLetters.flatMap(Arrays::stream).forEach(System.out::println);
+
+
     }
 
     public static void filterOperation(){

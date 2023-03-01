@@ -7,7 +7,6 @@ public class Honda implements Vehicle{
         System.out.println("Say Hello from Class Honda");
     }
 
-
     @Override // overriding abstract method (mandatory)
     public int getSpeed() {
         return 100;
@@ -33,6 +32,7 @@ public class Honda implements Vehicle{
 
         // calling static method from interface
         Vehicle.sayHello();
+        Vehicle.main(args);
     }
 
 
