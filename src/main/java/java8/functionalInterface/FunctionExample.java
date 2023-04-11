@@ -6,6 +6,11 @@ import java.util.function.Function;
 public class FunctionExample {
 
     public static void main(String[] args) {
+
+        /*takes one object as input
+         * returns given object
+         *  method name is apply*/
+
         Function<String, String> upperCase = str -> str.toUpperCase();
         System.out.println("To Upper case  : " + upperCase.apply("mahesh"));
 

@@ -7,6 +7,10 @@ public class PredicateExample {
 
     public static void main(String[] args) {
 
+        /*takes one object as input
+         * returns boolean
+         * method name is test*/
+
         Predicate<String> isLong = str -> str.length() > 50;
         System.out.println(isLong.test("cjdhjcdhbdccjdhjcdhbdccjdhjccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdccjdhjcdhbdc"));
 

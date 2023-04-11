@@ -5,7 +5,11 @@ import java.util.function.Supplier;
 
 public class SupplierExample {
     public static void main(String[] args) {
-        // here <Integer> is input type
+
+        /* takes no input
+         * returns given type
+         * method name is get*/
+
 
         Supplier<Integer> dayOfTheMonth = () -> LocalDate.now().getDayOfMonth();
 

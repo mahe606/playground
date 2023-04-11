@@ -1,20 +1,23 @@
 package java8.streams;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.function.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamOperations {
 
     public static void main(String[] args) {
-        //mapOperation();
+/*        mapOperation();
         flatMapOperation();
         convertDollarToRupee();
         filterOperation();
         findLongestString();
+        findFirstElement();
+        findDuplicate();
+        countGivenChar();*/
+
+        reverseElements();
     }
 
     // map operation
@@ -27,7 +30,11 @@ public class StreamOperations {
 
         names.stream() // create operation
                 .map(str -> str.toUpperCase()) // Intermediate operation 1
-                .map(str -> str.concat(" Atmecs"))  // Intermediate operation 2
+                .map(str -> str.concat(" Atmecs"))// Intermediate operation 2
+                .map(s-> {
+                    s = s.replace("Atmecs", "CSCS");
+                    return s;
+                })
                 .forEach(System.out::println); // terminal operation
 
     }
@@ -72,4 +79,61 @@ public class StreamOperations {
         String longString = Arrays.stream(phrase.split(" ")).max(Comparator.comparingInt(String::length)).orElse(null).toString();
         System.out.println("The longest String is " + longString);
     }
+
+    public static void findFirstElement(){
+        Stream<String> stream
+                = Stream.of("Geek_First", "Geek_2",
+                "Geek_3", "Geek_4",
+                "Geek_Last");
+
+        System.out.println(stream.findFirst().get());
+
+        Stream<String> stream1
+                = Stream.of("Geek_First", "Geek_2",
+                "Geek_3", "Geek_4",
+                "Geek_Last");
+
+        System.out.println(stream1.reduce((first, second) -> second).get());
+    }
+
+
+    public static void findDuplicate() {
+        Stream<Integer> stream = Stream.of(5, 13, 4, 21, 13, 27, 2, 59, 59, 34, 59);
+
+        Set<Integer> set = new HashSet<>();
+        Set<String> stringSet = new HashSet<>();
+
+        List<Integer> dup = stream.filter(num->!set.add(num)).collect(Collectors.toList());
+        System.out.println(dup);
+
+
+        String str = "Welcome to the Altimetrik Hiring program. In this Hiring process," + " we would like to evaluate your programming skills and technology understanding skills. " + " It is a long established fact that a reader will be distracted by the readable content " + " of a page when looking at its layout. The point of using Lorem Ipsum is that " + " it has a more-or-less normal distributioninging of letters, as opposed to using Content here, content here";
+        Set<String> sList = Arrays.stream(str.split(" ")).filter(s->!stringSet.add(s.trim())).collect(
+                Collectors.toSet());
+
+        System.out.println(sList);
+    }
+
+
+    public static void countGivenChar(){
+        String str = "geeksforgeeks";
+        String c = "e";
+        long count = Arrays.stream(str.split("")).filter( ch -> ch.equals(c)).count();
+        System.out.println("Count of given char is " + count);
+
+
+    }
+
+
+    public static void reverseElements(){
+        Integer[] arr = {10, 20, 30, 40};
+        Stream<Integer> stream = Arrays.asList(arr).parallelStream();
+
+        Iterator<Integer> iterator = stream.collect(Collectors.toCollection(LinkedList::new)).descendingIterator();
+        while (iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+    }
+
+
 }

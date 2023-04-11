@@ -14,7 +14,8 @@ public class EmpSalary {
         empList.add(a);
         empList.add(b);
         empList.add(c);
-        System.out.println(getMaxSalary(empList).getEmpNameName());
+        System.out.println(getMaxSalary(empList).getEmpName());
+        System.out.println(getMaxSalaryStream(empList).getEmpName());
     }
 
 
@@ -30,10 +31,9 @@ public class EmpSalary {
         return emp;
     }
 
-    public static int getMaxSalaryStream(List<Employee> list){
+    public static Employee getMaxSalaryStream(List<Employee> list){
         Optional<Employee> salary = list.stream().max(Comparator.comparingInt(Employee::getSalary));
-
-        return 0;
+        return salary.get();
     }
 
 
