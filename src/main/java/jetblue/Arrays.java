@@ -12,11 +12,11 @@ public class Arrays {
 
         int[] a = {1, 2, 8, 3, 4, 4, 5, 2, 5, 7, 8, 8};
         int j = 0;
-        j = removeDuplicates1(a);
+        //j = removeDuplicates1(a);
 
         // printing array elements
-        for (int i = 0; i < j; i++)
-            System.out.print(a[i] + " ");
+       // for (int i = 0; i < j; i++)
+           // System.out.print(a[i] + " ");
 
 /*        int b[] = { 1, 2, 2, 3, 3, 4, 4, 4, 5, 5, 6 };
         removeDuplicatesUsingSet(b);
@@ -25,31 +25,31 @@ public class Arrays {
         removeDuplicatesUsingMap(c);*/
 
         int d[] = {1, 2, 22, 3, 3, 4, 4, 4, 0, 5, 6};
-        getMinMaxValue(d);
+       // getMinMaxValue(d);
 
         String str = "Mahesh Thamilaraasu";
-        getMostRecurringChar(str);
+        //getMostRecurringChar(str);
 
         int e[] = {9, 8, 7, 6, 5, 4, 3, 2, 1};
-        reverseIntArray(e);
+        //reverseIntArray(e);
 
         int f[] = {1, 33, 20, 3, 10, 5};
-        subArraySum(f, 33);
+        subArraySum(f, 18);
 
         int g[] = {1, 2, 3, 5};
-        missingNumberInArray(g, 5);
+       // missingNumberInArray(g, 5);
 
         int h[] = {1, 5, 7, -1, 5};
-        getPairsCount(h, 6);
+       // getPairsCount(h, 6);
 
         int i[] = {1, 2, 3, 6, 3, 6, 1, 1};
-        findDuplicatesInArray(i);
+        //findDuplicatesInArray(i);
 
         int arr1[] = {1, 2, 4, 5, 6};
         int arr2[] = {2, 3, 5, 7};
 
-        unionOfArray(arr1, arr2);
-        intersectionOfArray(arr1, arr2);
+        //unionOfArray(arr1, arr2);
+        //intersectionOfArray(arr1, arr2);
         int k[] = {0,8, 7, 0, 0, 4, 0, 2, 1, 9, 0};
         moveZerosToOneSideUsingArray(k);
     }
@@ -279,13 +279,16 @@ public class Arrays {
     public static void subArraySum(int[] a, int sum) {
         int checkSum = 0;
         for (int i = 0; i < a.length - 1; i++) {
+            System.out.println("i is " + a[i]);
             checkSum = a[i];
             if (checkSum == sum) {
                 System.out.println("the sum is at index " + i);
                 return;
             }
-            for (int j = i + 1; j < a.length - 1; j++) {
+            for (int j = i + 1; j < a.length ; j++) {
+
                 checkSum += a[j];
+                System.out.println("checkSum is " + checkSum);
                 if (checkSum == sum) {
                     System.out.println("the range is between " + i + " and " + j);
                     return;

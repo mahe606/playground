@@ -8,7 +8,7 @@ public class CodingProblems {
     public static void main(String[] args) {
         reverseSentence("I love India");
 
-        String[] input = {"apple", "ape", "april"};
+        String[] input = {"apple", "ape", "appril"};
         longestCommonPrefix(input);
 
         String[] s = { "geeks", "for", "geeks", "contribute", "practice"};
